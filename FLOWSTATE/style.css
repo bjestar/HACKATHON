@@ -1,0 +1,626 @@
+:root {
+    --background: #111318;
+    --sidebar: #171922;
+    --card: #1B1E27;
+    --card-hover: #222633;
+    --accent: #A78BFA;
+    --text: #E8EAF0;
+    --secondary: #858B9B;
+    --success: #55C99A;
+    --border: #2B2F3B;
+}
+
+/* 2. RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* 3. SIDEBAR */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo h2 {
+    font-size: 23px;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: -150px;
+}
+
+.navigation p {
+    color: var(--secondary);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--secondary);
+    padding: 13px 15px;
+    border-radius: 9px;
+    transition: 0.3s;
+}
+
+.navigation a:hover {
+    background: var(--card-hover);
+    color: var(--accent);
+}
+
+.sidebar-bottom {
+    color: var(--secondary);
+    font-size: 12px;
+}
+
+/* 4. MAIN CONTENT */
+.main-content {
+    margin-left: 250px;
+    padding: 40px 50px;
+    max-width: 1600px;
+}
+
+/* 5. TOPBAR */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 55px;
+}
+
+.topbar p {
+    color: var(--secondary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.topbar h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 9px;
+    background: var(--accent);
+    color: #171421;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+section {
+    margin-bottom: 55px;
+    scroll-margin-top: 30px;
+}
+
+section > h2 {
+    font-size: 23px;
+    margin-bottom: 9px;
+}
+
+section > p {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* ==============================
+   7. STATISTICS CARDS
+============================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover);
+}
+
+.stat-card p {
+    color: var(--secondary);
+    font-size: 13px;
+    margin-bottom: 17px;
+}
+
+.stat-card h3 {
+    color: var(--accent);
+    font-size: 29px;
+}
+
+/* ==============================
+   8. TASK BOARD
+============================== */
+
+#add-task-btn {
+    margin: 10px 0 25px;
+}
+
+.task-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.task-column {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    min-height: 250px;
+}
+
+.task-column h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.task-column h3 span {
+    background: var(--card-hover);
+    color: var(--accent);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}/* ==============================
+   13. ADD TASK DIALOG
+============================== */
+
+#task-dialog {
+    width: 90%;
+    max-width: 450px;
+    margin: auto;
+    padding: 30px;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+#task-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+}
+
+#task-dialog h2 {
+    font-size: 23px;
+    margin-bottom: 25px;
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#task-form label {
+    color: var(--secondary);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+#task-form input,
+#task-form select {
+    width: 100%;
+    padding: 13px;
+    background: var(--background);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    font-size: 14px;
+}
+
+#task-form input:focus,
+#task-form select:focus {
+    border-color: var(--accent);
+}
+
+.dialog-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dialog-actions button {
+    flex: 1;
+}
+
+#close-dialog {
+    background: var(--card-hover);
+    color: var(--text);
+    border: 1px solid var(--border);
+}/* ==============================
+   14. RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 1100px) {
+    .main-content {
+        padding: 35px 25px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .task-board {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px;
+    }
+
+    .navigation {
+        margin-top: 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .navigation p,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .navigation a {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 25px 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .topbar h1 {
+        font-size: 27px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 17px;
+    }
+
+    .stat-card h3 {
+        font-size: 23px;
+    }
+
+    .focus-card h3 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 400px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==============================
+   9. FOCUS MODE
+============================== */
+
+.focus-card {
+    background: linear-gradient(135deg, #242033, #1B1E27);
+    border: 1px solid #39304F;
+    border-radius: 18px;
+    padding: 35px;
+    text-align: center;
+    max-width: 650px;
+    margin-top: 20px;
+}
+
+.focus-card > p {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.focus-card h3 {
+    font-size: 65px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.focus-card button {
+    margin: 5px;
+}
+
+#pause-timer,
+#reset-timer {
+    background: var(--card-hover);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+/* ==============================
+   10. PRODUCTIVITY ANALYTICS
+============================== */
+
+.analytics-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.analytics-card h3 {
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #303440;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #A78BFA, #55C99A);
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#progress-text {
+    color: var(--secondary);
+    font-size: 13px;
+    margin-top: 13px;
+}
+
+/* ==============================
+   11. DAILY CHALLENGE
+============================== */
+
+.challenge-card {
+    background: linear-gradient(135deg, #29233B, #1B1E27);
+    border: 1px solid #40345B;
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.challenge-card > p {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.challenge-card h3 {
+    font-size: 20px;
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+/* ==============================
+   12. SMART SUGGESTIONS
+============================== */
+
+.suggestion-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 23px;
+    margin-top: 20px;
+}
+
+.suggestion-card p {
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.7;
+}.focus-cat {
+    font-size: 75px;
+    margin: 15px 0;
+    animation: cat-rest 3s ease-in-out infinite;
+}
+
+@keyframes cat-rest {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+/* ==============================
+   15. TASK CARD DESIGN
+============================== */
+
+.task-item {
+    background: var(--card-hover);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    transition: 0.3s;
+    cursor: grab;
+}
+
+.task-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.task-item:active {
+    cursor: grabbing;
+}
+
+.task-item h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.task-item p {
+    color: var(--secondary);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.task-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.priority {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 9px;
+    border-radius: 20px;
+}
+
+.priority-high {
+    background: #492B38;
+    color: #FF8DA1;
+}
+
+.priority-medium {
+    background: #493C27;
+    color: #F4C66A;
+}
+
+.priority-low {
+    background: #244238;
+    color: #75D9AC;
+}
+
+.task-actions {
+    display: flex;
+    gap: 7px;
+    margin-top: 14px;
+}
+
+.task-actions button {
+    padding: 7px 10px;
+    font-size: 11px;
+}
+
+.task-actions .delete-task {
+    background: #492B38;
+    color: #FF9BAA;
+}
+
+.task-actions .edit-task {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+/* EMPTY TASK COLUMNS */
+
+.task-column[data-status="now"] .task-list:empty::after {
+    content: "No tasks yet. Add your first task!";
+}
+
+.task-column[data-status="later"] .task-list:empty::after {
+    content: "Nothing planned for later.";
+}
+
+.task-column[data-status="completed"] .task-list:empty::after {
+    content: "Your completed tasks will appear here.";
+}
+
+.task-list:empty::after {
+    display: block;
+    color: var(--secondary);
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+    padding: 25px 10px;
+}
+
+/* DRAG AND DROP VISUAL EFFECTS */
+
+.task-column.drag-over {
+    border: 1px dashed var(--accent);
+    background: #252238;
+}
+
+.task-item.dragging {
+    opacity: 0.4;
+}
