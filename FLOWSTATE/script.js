@@ -118,6 +118,7 @@ saveTasks();
 
             displayTasks();
         });
+        updateStreak();
 
         actions.appendChild(deleteBtn);
         card.appendChild(actions);
@@ -134,7 +135,8 @@ saveTasks();
     });
 
     updateAnalytics();
-    };
+    updateSuggestions();
+    
 
     // Përditësimi i numrit të detyrave
     document.getElementById("now-count").textContent =
@@ -181,10 +183,12 @@ columns.forEach(function(column) {
 
         saveTasks();
         displayTasks();
+    
          updateStreak();
     };
 });
 
+}
  // Mbyllet displayTasks
 
 
@@ -392,4 +396,31 @@ function updateStreak() {
 }
 
 updateStreak();
+// SMART SUGGESTIONS
+
+function updateSuggestions() {
+
+    const suggestionText = document.getElementById("suggestion-text");
+
+    const activeTasks = tasks.filter(function(task) {
+        return task.status !== "completed";
+    });
+
+    if (activeTasks.length === 0) {
+        suggestionText.textContent = "Add some tasks to receive personalized suggestions.";
+        return;
+    }
+
+    const highPriority = activeTasks.find(function(task) {
+        return task.priority === "high";
+    });
+
+    if (highPriority) {
+        suggestionText.textContent =
+            "Your next priority should be: " + highPriority.title;
+    } else {
+        suggestionText.textContent =
+            "Great! Start with: " + activeTasks[0].title;
+    }
+}
 
