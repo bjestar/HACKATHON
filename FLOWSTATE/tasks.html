@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowstate | My Tasks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+    <div class="logo">
+        <h2>FLOWSTATE<span>.</span></h2>
+    </div>
+
+    <nav class="navigation">
+        <p>MENU</p>
+
+        <a href="index.html">Overview</a>
+        <a href="tasks.html">My Tasks</a>
+        <a href="focus.html">Focus Mode</a>
+        <a href="analytics.html">Analytics</a>
+            <a href="challenge.html" class="active">Mini Games</a>
+
+        <!-- FOCUS SOUNDS -->
+        <div class="music-menu">
+
+            <button type="button" id="music-toggle" class="music-toggle">
+                <span>♫</span>
+                Focus Sounds
+                <span id="music-arrow">⌄</span>
+            </button>
+
+            <div id="music-options" class="music-options">
+
+                <button type="button" class="sound-option" data-sound="rain">
+                    🌧️ Rain
+                </button>
+
+                <button type="button" class="sound-option" data-sound="forest">
+                    🌲 Forest
+                </button>
+
+                <button type="button" class="sound-option" data-sound="noise">
+                    🌊 Sea
+                </button>
+
+                <div class="music-controls">
+                    <button type="button" id="play-sound">▶</button>
+                    <button type="button" id="pause-sound">Ⅱ</button>
+                </div>
+
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+    </div>
+
+</aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p>YOUR PRODUCTIVITY SPACE</p>
+                <h1>My Tasks</h1>
+                <p>Organize your priorities and get things done.</p>
+            </div>
+        </header>
+
+
+        <!-- TASK MANAGEMENT -->
+        <section id="tasks">
+
+            <h2>Task Management</h2>
+            <p>Keep track of everything you need to accomplish.</p>
+
+            <button id="add-task-btn">+ Add Task</button>
+
+            <div class="task-board">
+
+                <!-- NOW -->
+                <div class="task-column" data-status="now">
+
+                    <h3>
+                        NOW
+                        <span id="now-count">0</span>
+                    </h3>
+
+                    <div class="task-list" id="now-list"></div>
+
+                </div>
+
+
+                <!-- LATER -->
+                <div class="task-column" data-status="later">
+
+                    <h3>
+                        LATER
+                        <span id="later-count">0</span>
+                    </h3>
+
+                    <div class="task-list" id="later-list"></div>
+
+                </div>
+
+
+                <!-- COMPLETED -->
+                <div class="task-column" data-status="completed">
+
+                    <h3>
+                        COMPLETED
+                        <span id="done-count">0</span>
+                    </h3>
+
+                    <div class="task-list" id="completed-list"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- WEEKLY CALENDAR -->
+
+        <section class="weekly-calendar">
+
+            <div class="calendar-header">
+
+                <div>
+                    <h2>Weekly Calendar</h2>
+                    <p>Plan your week and keep track of your deadlines.</p>
+                </div>
+
+                <div class="calendar-navigation">
+                    <button type="button" id="prev-week">←</button>
+                    <span id="calendar-month"></span>
+                    <button type="button" id="next-week">→</button>
+                </div>
+
+            </div>
+
+            <div class="calendar-card">
+
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- JavaScript generates calendar days here -->
+                </div>
+
+            </div>
+
+            <div class="calendar-details">
+
+                <h3 id="selected-date">Select a date</h3>
+
+                <div id="calendar-tasks">
+                    <p>Select a day to see your tasks.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- ADD / EDIT TASK DIALOG -->
+        <dialog id="task-dialog">
+
+            <form id="task-form">
+
+                <h2 id="dialog-title">Add New Task</h2>
+
+                <label for="task-title">Task Name</label>
+                <input
+                    type="text"
+                    id="task-title"
+                    placeholder="Enter your task..."
+                    required
+                >
+
+                <label for="task-priority">Priority</label>
+                <select id="task-priority">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                </select>
+
+                <label for="task-deadline">Deadline</label>
+                <input type="date" id="task-deadline">
+
+                <label for="task-status">Category</label>
+                <select id="task-status">
+                    <option value="now">Now</option>
+                    <option value="later">Later</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <div class="dialog-actions">
+
+                    <button type="submit" id="save-task">Save Task</button>
+
+                    <button type="button" id="close-dialog">
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </dialog>
+
+
+
+    </main>
+
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowstate | Mini Games</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="auth.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>FLOWSTATE<span>.</span></h2>
+        </div>
+
+        <nav class="navigation">
+            <p>MENU</p>
+
+            <a href="index.html">Overview</a>
+            <a href="tasks.html">My Tasks</a>
+            <a href="focus.html">Focus Mode</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="challenge.html" class="active">Mini Games</a>
+
+            <!-- FOCUS SOUNDS -->
+            <div class="music-menu">
+
+                <button type="button" id="music-toggle" class="music-toggle">
+                    <span>♫</span>
+                    Focus Sounds
+                    <span id="music-arrow">⌄</span>
+                </button>
+
+                <div id="music-options" class="music-options">
+
+                    <button type="button" class="sound-option" data-sound="rain">
+                        🌧️ Rain
+                    </button>
+
+                    <button type="button" class="sound-option" data-sound="forest">
+                        🌲 Forest
+                    </button>
+
+                    <button type="button" class="sound-option" data-sound="noise">
+                        🌊 Sea
+                    </button>
+
+                    <div class="music-controls">
+                        <button type="button" id="play-sound">▶</button>
+                        <button type="button" id="pause-sound">Ⅱ</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header>
+            <h1>Mini Games</h1>
+            <p>Take a little break. You deserve it.</p>
+        </header>
+
+        <section class="game-section">
+
+            <div class="game-heading">
+                <div>
+                    <span class="game-tag">✦ YOUR LITTLE BREAK</span>
+                    <h2>Bubble Pop</h2>
+                    <p>Pop as many bubbles as you can in 30 seconds!</p>
+                </div>
+            </div>
+
+            <!-- GAME STATS -->
+            <div class="game-stats">
+
+                <div class="game-stat">
+                    <span>YOUR SCORE</span>
+                    <h2 id="game-score">0</h2>
+                </div>
+
+                <div class="game-stat">
+                    <span>TIME LEFT</span>
+                    <h2 id="game-timer">30s</h2>
+                </div>
+
+                <div class="game-stat">
+                    <span>BEST SCORE</span>
+                    <h2 id="best-score">0</h2>
+                </div>
+
+            </div>
+
+            <!-- GAME AREA -->
+            <div class="bubble-game" id="bubble-game">
+
+                <div class="game-message" id="game-message">
+                    <div class="game-message-icon">🫧</div>
+                    <h2>Ready to relax?</h2>
+                    <p>Click the bubbles before they disappear!</p>
+                    <button id="start-game">Start Playing</button>
+                </div>
+
+                <div class="game-overlay" id="game-overlay">
+                    <h2>Time's up!</h2>
+                    <p>Your final score:</p>
+                    <h1 id="final-score">0</h1>
+                    <button id="restart-game">Play Again</button>
+                </div>
+
+            </div>
+
+            <p class="game-tip">
+                ✦ Tip: Every bubble you pop gives you 1 point. Enjoy your break!
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -1,171 +1,151 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flowstate | Productivity Dashboard</title>
+    <title>Flowstate | Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
-     <aside class="sidebar">
-        <div class="logo">
-            <h2>FLOWSTATE<span>.</span></h2>
+
+    <!-- SIDEBAR -->
+
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+    <div class="logo">
+        <h2>FLOWSTATE<span>.</span></h2>
+    </div>
+
+    <nav class="navigation">
+        <p>MENU</p>
+
+        <a href="index.html">Overview</a>
+        <a href="tasks.html">My Tasks</a>
+        <a href="focus.html">Focus Mode</a>
+        <a href="analytics.html">Analytics</a>
+            <a href="challenge.html" class="active">Mini Games</a>
+
+        <!-- FOCUS SOUNDS -->
+        <div class="music-menu">
+
+            <button type="button" id="music-toggle" class="music-toggle">
+                <span>♫</span>
+                Focus Sounds
+                <span id="music-arrow">⌄</span>
+            </button>
+
+            <div id="music-options" class="music-options">
+
+                <button type="button" class="sound-option" data-sound="rain">
+                    🌧️ Rain
+                </button>
+
+                <button type="button" class="sound-option" data-sound="forest">
+                    🌲 Forest
+                </button>
+
+                <button type="button" class="sound-option" data-sound="noise">
+                    🌊 Sea
+                </button>
+
+                <div class="music-controls">
+                    <button type="button" id="play-sound">▶</button>
+                    <button type="button" id="pause-sound">Ⅱ</button>
+                </div>
+
+            </div>
         </div>
 
-        <nav class="navigation">
-            <p>MENU</p>
-            <a href="#overview">Overview</a>
-            <a href="#tasks">My Tasks</a>
-            <a href="#focus">Focus Mode</a>
-            <a href="#analytics">Analytics</a>
-            <a href="#challenge">Daily Challenge</a>
-        </nav>
+    </nav>
 
-        <div class="sidebar-bottom">
-            <p>Stay focused. Keep growing.</p>
-        </div>
-    </aside>
+    <div class="sidebar-bottom">
 
+    </div>
+
+</aside>
+
+
+
+
+    <!-- MAIN CONTENT -->
     <main class="main-content">
 
         <header class="topbar">
+
             <div>
                 <p>YOUR PRODUCTIVITY SPACE</p>
-                <h1>Welcome back!</h1>
+                <h1 id="welcome-name">Welcome back!</h1>
                 <p>Let's make today count.</p>
             </div>
-            <button id="theme-toggle">Toggle Theme</button>
+
+
         </header>
 
+
+        <!-- OVERVIEW -->
         <section id="overview">
+
             <h2>Overview</h2>
+
             <p>Your progress at a glance.</p>
 
             <div class="stats-grid">
+
                 <article class="stat-card">
                     <p>Total Tasks</p>
                     <h3 id="total-tasks">0</h3>
                 </article>
+
                 <article class="stat-card">
                     <p>Completed</p>
                     <h3 id="completed-tasks">0</h3>
                 </article>
+
                 <article class="stat-card">
                     <p>Productivity</p>
                     <h3 id="productivity-rate">0%</h3>
                 </article>
+
                 <article class="stat-card">
                     <p>Current Streak</p>
                     <h3 id="streak-count">0 days</h3>
                 </article>
+
             </div>
+
+
+<!-- WEEKLY PRODUCTIVITY CHART -->
+<section class="productivity-section">
+
+    <div class="chart-header">
+        <div>
+            <p class="section-label">YOUR PERFORMANCE</p>
+            <h2>Weekly Productivity</h2>
+            <p>Track your progress throughout the week.</p>
+        </div>
+
+        <div class="chart-summary">
+            <span>THIS WEEK</span>
+            <h3 id="weekly-average">0%</h3>
+            <p>Tasks completed this week</p>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="productivityChart"></canvas>
+    </div>
+
+</section>
+
+
+
         </section>
-
-        <section id="tasks">
-            <h2>My Tasks</h2>
-            <p>Organize your priorities.</p>
-            <button id="add-task-btn">+ Add Task</button>
-
-            <div class="task-board">
-                <div class="task-column" data-status="now">
-                    <h3>NOW <span id="now-count">0</span></h3>
-                    <div class="task-list" id="now-list"></div>
-                </div>
-
-                <div class="task-column" data-status="later">
-                    <h3>LATER <span id="later-count">0</span></h3>
-                    <div class="task-list" id="later-list"></div>
-                </div>
-
-                <div class="task-column" data-status="completed">
-                    <h3>COMPLETED <span id="done-count">0</span></h3>
-                    <div class="task-list" id="completed-list"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="focus">
-            <h2>Focus Mode</h2>
-            <p>Make time for what matters.</p>
-            <div class="focus-card">
-                 <p>TIME TO FOCUS</p>
-
-    <div class="focus-cat">🐈‍⬛</div>
-
-    <h3 id="timer">25:00</h3>
-    <button id="start-timer">Start</button>
-    <button id="pause-timer">Pause</button>
-    <button id="reset-timer">Reset</button>
-            </div>
-        </section>
-
-        <section id="analytics">
-            <h2>Productivity Analytics</h2>
-            <div class="analytics-card">
-                <h3>Task Completion</h3>
-                <div class="progress-bar">
-                    <div id="progress-fill"></div>
-                </div>
-                <p id="progress-text">0% completed</p>
-            </div>
-        </section>
-
-        <section id="challenge">
-            <h2>Daily Challenge</h2>
-            <div class="challenge-card">
-                <p>TODAY'S CHALLENGE</p>
-                <h3 id="challenge-text">
-                    Complete your most important task today.
-                </h3>
-                <button id="complete-challenge">
-                    Complete Challenge
-                </button>
-            </div>
-        </section>
-
-        <section id="suggestions">
-            <h2>Smart Suggestions</h2>
-            <div class="suggestion-card">
-                <p id="suggestion-text">
-                    Add some tasks to receive personalized suggestions.
-                </p>
-            </div>
-        </section>
-
-        <dialog id="task-dialog">
-            <form id="task-form">
-                <h2 id="dialog-title">Add New Task</h2>
-
-                <label for="task-title">Task Name</label>
-                <input type="text" id="task-title"
-                    placeholder="Enter your task..." required>
-
-                <label for="task-priority">Priority</label>
-                <select id="task-priority">
-                    <option value="high">High</option>
-                    <option value="medium" selected>Medium</option>
-                    <option value="low">Low</option>
-                </select>
-
-                <label for="task-deadline">Deadline</label>
-                <input type="date" id="task-deadline">
-
-                <label for="task-status">Category</label>
-                <select id="task-status">
-                    <option value="now">Now</option>
-                    <option value="later">Later</option>
-                    <option value="completed">Completed</option>
-                </select>
-
-                <div class="dialog-actions">
-                    <button type="submit" id="save-task">Save Task</button>
-                    <button type="button" id="close-dialog">Cancel</button>
-                </div>
-            </form>
-        </dialog>
 
     </main>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,203 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111318;
+    color: #E8EAF0;
+    min-height: 100vh;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.auth-logo {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 35px;
+}
+
+.auth-logo span {
+    color: #A78BFA;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    background: #1B1E27;
+    border: 1px solid #2B2F3B;
+    border-radius: 18px;
+    padding: 40px;
+}
+
+.auth-subtitle {
+    color: #A78BFA;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 13px;
+}
+
+.auth-card h1 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.auth-description {
+    color: #858B9B;
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#login-form label {
+    font-size: 13px;
+    color: #858B9B;
+    margin-top: 8px;
+}
+
+#login-form input {
+    padding: 14px;
+    background: #111318;
+    border: 1px solid #2B2F3B;
+    border-radius: 9px;
+    color: #E8EAF0;
+    font-size: 14px;
+    outline: none;
+}
+
+#login-form input:focus {
+    border-color: #A78BFA;
+}
+
+#login-form button {
+    margin-top: 15px;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #A78BFA;
+    color: #171421;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#login-form button:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.auth-switch {
+    text-align: center;
+    color: #858B9B;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+.auth-switch a {
+    color: #A78BFA;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-footer {
+    color: #858B9B;
+    font-size: 12px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 28px 22px;
+    }
+
+    .auth-card h1 {
+        font-size: 23px;
+    }
+}
+
+/* FIX INPUT AUTOFILL COLORS */
+
+#login-form input,
+#signup-form input {
+    background-color: #111318;
+    color: #E8EAF0;
+    caret-color: #A78BFA;
+}
+
+#login-form input:-webkit-autofill,
+#signup-form input:-webkit-autofill,
+#login-form input:-webkit-autofill:hover,
+#signup-form input:-webkit-autofill:hover,
+#login-form input:-webkit-autofill:focus,
+#signup-form input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #E8EAF0;
+    -webkit-box-shadow: 0 0 0 1000px #111318 inset;
+    transition: background-color 5000s ease-in-out 0s;
+    border: 1px solid #A78BFA;
+}
+
+/* SIGN UP FORM DESIGN */
+
+#signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#signup-form label {
+    color: #858B9B;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+#signup-form input {
+    width: 100%;
+    padding: 14px;
+    background: #111318;
+    color: #E8EAF0;
+    border: 1px solid #2B2F3B;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+}
+
+#signup-form input:focus {
+    border-color: #A78BFA;
+}
+
+#signup-form button {
+    margin-top: 15px;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #A78BFA;
+    color: #171421;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#signup-form button:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
